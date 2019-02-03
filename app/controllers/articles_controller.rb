@@ -20,4 +20,16 @@ class ArticlesController < ApplicationController
   end
 
   # add edit and update methods here
+  def edit
+    #code
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    #code
+    @article = Article.find(params[:id])
+    # byebug
+    @article.update(title: params[:article][:title], description: params[:article][:description])
+    redirect_to article_path(@article)
+  end
 end
